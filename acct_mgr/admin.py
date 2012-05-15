@@ -24,7 +24,7 @@ from trac.web.chrome    import ITemplateProvider, add_notice, \
                                add_stylesheet, add_warning
 from trac.admin         import IAdminPanelProvider
 
-from acct_mgr.api       import AccountManager, _, dgettext, gettext, tag_, \
+from acct_mgr.api       import AccountManager, _, gettext, tag_, \
                                del_user_attribute, get_user_attribute, \
                                set_user_attribute
 from acct_mgr.guard     import AccountGuard
@@ -192,7 +192,7 @@ class AccountManagerAdminPages(Component):
         sections = sorted(sections, key=lambda i: i['name'])
         numstores = range(0, stores.numstores() + 1)
         data = {
-            '_dgettext': dgettext,
+            '_': _,
             'sections': sections,
             'numstores': numstores,
             'force_passwd_change': self.acctmgr.force_passwd_change,
@@ -218,7 +218,7 @@ class AccountManagerAdminPages(Component):
         delete_enabled = acctmgr.supports('delete_user')
 
         data = {
-            '_dgettext': dgettext,
+            '_': _,
             'listing_enabled': listing_enabled,
             'create_enabled': create_enabled,
             'delete_enabled': delete_enabled,
@@ -266,7 +266,7 @@ class AccountManagerAdminPages(Component):
             elif req.args.get('change'):
                 attributes = {
                     'email': _("Email Address"),
-                    'name': _("Pre-/Surname (Nickname)"),
+                    'name': _("Full name"),
                     'password': _("Password")
                     }
                 data['success'] = []
@@ -370,7 +370,7 @@ class AccountManagerAdminPages(Component):
         elif req.args.get('list'):
             req.redirect(req.href.admin('accounts', 'users'))
 
-        data = {'_dgettext': dgettext,
+        data = {'_': _,
                 'user': username,
                }
         stores = StoreOrder(stores=acctmgr.stores,

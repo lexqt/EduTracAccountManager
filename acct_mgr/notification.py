@@ -21,7 +21,7 @@ from trac.notification import NotifyEmail
 
 from pkg_resources import resource_filename
 
-from acct_mgr.api import IAccountChangeListener, _, dgettext
+from acct_mgr.api import IAccountChangeListener, _
 
 class AccountChangeListener(Component):
     implements(IAccountChangeListener)
@@ -115,11 +115,8 @@ class SingleUserNotification(NotifyEmail):
         self.config.set('notification', 'use_public_cc', 'true')
         try:
             NotifyEmail.notify(self, username, subject)
-        # DEVEL: Better use new 'finally' statement here, but
-        #   still need to care for Python 2.4 (RHEL5.x) for now
-        except:
-            pass
-        self.config.set('notification', 'use_public_cc', old_public_cc)
+        finally:
+            self.config.set('notification', 'use_public_cc', old_public_cc)
 
 
 class PasswordResetNotification(SingleUserNotification):
@@ -188,7 +185,7 @@ class AccountChangeNotificationAdminPage(Component):
             'account-manager', 'account_changes_notify_addresses').split()
         notify_actions = self.config.getlist('account-manager',
                                              'notify_actions')
-        data = {'_dgettext': dgettext,
+        data = {'_': _,
                 'notify_actions': notify_actions,
                 'notify_addresses': notify_addresses
                }

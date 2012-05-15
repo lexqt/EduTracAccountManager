@@ -45,18 +45,27 @@ from acct_mgr.util import containsAny, is_enabled
 def _create_user(req, env, check_permissions=True):
     acctmgr = AccountManager(env)
     username = acctmgr.handle_username_casing(
-                        req.args.get('username').strip())
-    name = req.args.get('name')
-    email = req.args.get('email').strip()
+                        req.args.get('username', '').strip())
+    name = req.args.get('name', '').strip()
+    email = req.args.get('email', '').strip()
     account = {'username' : username,
                'name' : name,
                'email' : email,
+               '_': _,
               }
     error = TracError('')
     error.account = account
 
     if not username:
         error.message = _("Username cannot be empty.")
+        raise error
+
+    if not name:
+        error.message = _("Full name cannot be empty.")
+        raise error
+
+    if not email:
+        error.message = _("Email cannot be empty.")
         raise error
 
     # Prohibit some user names that are important for Trac and therefor
@@ -73,7 +82,7 @@ def _create_user(req, env, check_permissions=True):
     #   was responsible for rejection of this user name.
     if acctmgr.has_user(username):
         error.message = _(
-            "Another account or group named %s already exists.") % username
+            "Another account or permission group named %s already exists.") % username
         raise error
 
     # Check whether there is also a user or a group with that name.
@@ -93,7 +102,7 @@ def _create_user(req, env, check_permissions=True):
                 perm.PermissionSystem(env).get_all_permissions():
             if perm_user == username:
                 error.message = _(
-                    "Another account or group named %s already exists.") \
+                    "Another account or permission group named %s already exists.") \
                     % username
                 raise error
 
@@ -120,6 +129,13 @@ def _create_user(req, env, check_permissions=True):
     if not password:
         error.message = _("Password cannot be empty.")
         raise error
+
+    if acctmgr.ascii_passwords:
+        try:
+            password.encode('ascii')
+        except UnicodeEncodeError:
+            error.message = _("The password must contain only ASCII characters.")
+            raise error
 
     if password != req.args.get('password_confirm'):
         error.message = _("The passwords must match.")
@@ -223,7 +239,7 @@ class AccountModule(Component):
 
     def render_preference_panel(self, req, panel):
         data = {'account': self._do_account(req),
-                '_dgettext': dgettext,
+                '_': _,
                }
         return 'prefs_account.html', data
 
@@ -234,7 +250,7 @@ class AccountModule(Component):
                self._reset_password_enabled(log=True)
 
     def process_request(self, req):
-        data = {'_dgettext': dgettext,
+        data = {'_': _,
                 'reset': self._do_reset_password(req)
                }
         return 'reset_password.html', data, None
@@ -443,11 +459,11 @@ class RegistrationModule(Component):
         if req.authname != 'anonymous':
             req.redirect(req.href.prefs('account'))
         action = req.args.get('action')
-        data = {'acctmgr' : { 'username' : None,
+        data = {'account' : { 'username' : None,
                               'name' : None,
                               'email' : None,
                             },
-                '_dgettext': dgettext,
+                '_': _,
                }
         data['verify_account_enabled'] = is_enabled(
             self.env, EmailVerificationModule) and self.acctmgr.verify_email
@@ -456,7 +472,7 @@ class RegistrationModule(Component):
                 _create_user(req, self.env)
             except TracError, e:
                 data['registration_error'] = e.message
-                data['acctmgr'] = getattr(e, 'acctmgr', '')
+                data['account'] = getattr(e, 'account', {})
             else:
                 chrome.add_notice(req, Markup(tag.span(Markup(_(
                      """Registration has been finished successfully.
@@ -561,7 +577,7 @@ class LoginModule(auth.LoginModule):
                     referer.startswith(str(req.abs_href()) + '/login'):
                 referer = req.abs_href()
             data = {
-                '_dgettext': dgettext,
+                '_': _,
                 'login_opt_list': self.login_opt_list == True,
                 'persistent_sessions': AccountManager(env
                                        ).persistent_sessions,
@@ -942,7 +958,7 @@ class EmailVerificationModule(Component):
                 req.redirect(req.href.prefs())
             else:
                 chrome.add_warning(req, _("Invalid verification token"))
-        data = {'_dgettext': dgettext}
+        data = {'_': _}
         if 'token' in req.args:
             data['token'] = req.args['token']
         if 'email_verification_token' not in req.session:

@@ -7,9 +7,6 @@
       xmlns:i18n="http://genshi.edgewall.org/i18n"
       i18n:domain="acct_mgr">
   <xi:include href="admin.html" />
-  <?python
-    if _dgettext is not None:
-        dgettext = _dgettext ?>
   <head>
     <title>Accounts</title>
   </head>
@@ -51,7 +48,7 @@
           </label>
         </div>
         <div class="field">
-          <label>Pre-/Surname (Nickname):<br />
+          <label>Full name:<br />
             <input type="text" name="name" class="textwidget"
                    value="${account.name}" /></label>
         </div>
@@ -64,9 +61,9 @@
         <div class="buttons">
           <input type="submit" name="add"
                  py:if="create_enabled"
-                 value="${dgettext('acct_mgr', ' Add ')}" />
+                 value="${_('Add')}" />
           <input type="submit" name="change"
-                 value="${dgettext('acct_mgr', ' Change ')}" />
+                 value="${_('Change')}" />
         </div>
       </fieldset>
     </form>
@@ -102,7 +99,7 @@
                        title="${acct.release_hint}" />
                   <img src="${href.chrome('/acct_mgr/locked.png')}"
                        py:otherwise="" alt="Permanently locked"
-                       title="${dgettext('acct_mgr', 'Permanently locked')}" />
+                       title="${_('Permanently locked')}" />
                 </py:choose>
               </td>
               <td>${acct.name}</td>
@@ -115,10 +112,10 @@
       <div class="buttons">
         <input type="submit" name="reset"
                py:if="password_reset_enabled"
-               value="${dgettext('acct_mgr', 'Reset passwords')}" />
+               value="${_('Reset passwords')}" />
         <input type="submit" name="remove"
                py:if="delete_enabled"
-               value="${dgettext('acct_mgr', 'Remove selected accounts')}" />
+               value="${_('Remove selected accounts')}" />
       </div>
     </form>
     </py:choose>

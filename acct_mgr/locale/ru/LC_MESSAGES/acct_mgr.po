@@ -4,110 +4,115 @@
 # TracAccountManager project.
 #
 # Dmitri Bogomolov <4glitch@gmail.com>, 2010-2011.
+# Aleksey A. Porfirov <lexqt@yandex.ru>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: TracAccountManager 0.3\n"
 "Report-Msgid-Bugs-To: hoff.st@shaas.net\n"
-"POT-Creation-Date: 2011-06-20 22:09+0200\n"
-"PO-Revision-Date: 2011-06-29 23:21+0300\n"
-"Last-Translator: Dmitri Bogomolov <4glitch@gmail.com>\n"
-"Language-Team: ru <LL@li.org>\n"
+"POT-Creation-Date: 2012-05-15 02:51+0400\n"
+"PO-Revision-Date: 2012-05-15 02:51+0400\n"
+"Last-Translator: Aleksey A. Porfirov <lexqt@yandex.ru>\n"
+"Language-Team: Russian <>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.0dev-r482\n"
+"Generated-By: Babel 0.9.6\n"
+"Language: ru\n"
+"X-Generator: Lokalize 1.2\n"
 
-#: acct_mgr/admin.py:81
+#: acct_mgr/admin.py:83
 #, python-format
 msgid "Invalid key type (%s) for StoreOrder"
 msgstr "Недопустимый тип ключа (%s) для StoreOrder"
 
-#: acct_mgr/admin.py:127 acct_mgr/admin.py:129 acct_mgr/admin.py:130
-#: acct_mgr/notification.py:171 acct_mgr/templates/admin_users.html:11
+#: acct_mgr/admin.py:129 acct_mgr/admin.py:131 acct_mgr/notification.py:171
+#: acct_mgr/templates/admin_users.html:11
 msgid "Accounts"
 msgstr "Учетные записи"
 
-#: acct_mgr/admin.py:127
+#: acct_mgr/admin.py:129
 msgid "Configuration"
 msgstr "Настройки"
 
-#: acct_mgr/admin.py:129
+#: acct_mgr/admin.py:131
 msgid "Users"
 msgstr "Пользователи"
 
-#: acct_mgr/admin.py:130
-msgid "Account details"
-msgstr "Учетные записи"
+#: acct_mgr/admin.py:205
+msgid "Password hash refresh procedure restarted."
+msgstr "Процедура обновления хеша пароля перезапущена."
 
-#: acct_mgr/admin.py:234
+#: acct_mgr/admin.py:245
 msgid "The password store does not support creating users."
 msgstr "Хранилище паролей не поддерживает создание пользователей."
 
-#: acct_mgr/admin.py:244
+#: acct_mgr/admin.py:255
 msgid "The password reset procedure is not enabled."
 msgstr "Процедура сброса пароля не разрешена."
 
-#: acct_mgr/admin.py:253
+#: acct_mgr/admin.py:264
 msgid "The password store does not support deleting users."
 msgstr "Хранилище паролей не поддерживает удаление пользователей."
 
-#: acct_mgr/admin.py:257
+#: acct_mgr/admin.py:268
 msgid "Email Address"
 msgstr "Электронный адрес"
 
-#: acct_mgr/admin.py:258
-msgid "Pre-/Surname (Nickname)"
-msgstr "Фамилия (ник)"
+#: acct_mgr/admin.py:269
+msgid "Full name"
+msgstr "Полное имя"
 
-#: acct_mgr/admin.py:259
+#: acct_mgr/admin.py:270
 msgid "Password"
 msgstr "Пароль"
 
-#: acct_mgr/admin.py:268 acct_mgr/web_ui.py:58
+#: acct_mgr/admin.py:279 acct_mgr/web_ui.py:60
 msgid "Username cannot be empty."
 msgstr "Имя пользователя не может быть пустым."
 
-#: acct_mgr/admin.py:273
+#: acct_mgr/admin.py:284
 #, python-format
 msgid "Unknown user %(user)s."
 msgstr "Неизвестный пользователь %(user)s."
 
-#: acct_mgr/admin.py:281 acct_mgr/web_ui.py:124 acct_mgr/web_ui.py:349
+#: acct_mgr/admin.py:292 acct_mgr/web_ui.py:141 acct_mgr/web_ui.py:371
 msgid "The passwords must match."
 msgstr "Пароли должны совпадать."
 
-#: acct_mgr/admin.py:286
+#: acct_mgr/admin.py:297
 msgid ""
 "The password store does not support\n"
 "                                changing passwords.\n"
 "                                "
 msgstr "Хранилище паролей не поддерживает изменение паролей."
 
-#: acct_mgr/admin.py:311
+#: acct_mgr/admin.py:322
 #, python-format
 msgid "Locked until %(t_release)s"
 msgstr "Заблокировано до  %(t_release)s"
 
-#: acct_mgr/admin.py:337
+#: acct_mgr/admin.py:352
 msgid "Please choose account by username from list to proceed."
 msgstr "Пожалуйста выберите учетную запись из списка для продолжения."
 
-#: acct_mgr/admin.py:354
+#: acct_mgr/admin.py:368
 #, python-format
 msgid "Failed login attempts for user %(user)s deleted"
 msgstr "Неудачные попытки входа для пользователя %(user)s удалены"
 
-#: acct_mgr/api.py:265
+#: acct_mgr/api.py:267
 #, python-format
 msgid ""
 "The authentication backend for user %s does not support\n"
 "                setting the password.\n"
 "                "
 msgstr ""
+"Выбранный для пользователя %s модуль аутентификации не поддерживает "
+"установку пароля."
 
-#: acct_mgr/api.py:277
+#: acct_mgr/api.py:279
 msgid ""
 "None of the IPasswordStore components listed in the\n"
 "                trac.ini supports setting the password or creating users."
@@ -117,11 +122,11 @@ msgstr ""
 "Ни один из компонентов IPasswordStore, перечисленных в\n"
 "trac.ini, не поддерживает установку пароля или создание пользователей."
 
-#: acct_mgr/db.py:24 acct_mgr/htfile.py:197
+#: acct_mgr/db.py:24 acct_mgr/htfile.py:199 acct_mgr/pwhash.py:36
 msgid "Default hash type of new/updated passwords"
 msgstr "Тип хэша поп умолчанию для новых/обновленных паролей"
 
-#: acct_mgr/htfile.py:36
+#: acct_mgr/htfile.py:38
 msgid ""
 "Path relative to Trac environment or full host machine\n"
 "                path to password file"
@@ -129,7 +134,7 @@ msgstr ""
 "Путь к файлу паролей относительно окружения Trac или полный путь на "
 "сервере"
 
-#: acct_mgr/htfile.py:143
+#: acct_mgr/htfile.py:145
 msgid ""
 "The password file could not be read. Trac requires\n"
 "                    read and write access to both the password file\n"
@@ -138,7 +143,7 @@ msgstr ""
 "Не удалось прочитать файл паролей. Trac требуются\n"
 "права на чтение и запись файла паролей и его родительского каталога."
 
-#: acct_mgr/htfile.py:161
+#: acct_mgr/htfile.py:163
 msgid ""
 "The password file could not be updated. Trac requires\n"
 "                    read and write access to both the password file\n"
@@ -147,9 +152,9 @@ msgstr ""
 "Не удалось обновить файл паролей. Trac требуются\n"
 "права на чтение и запись файла паролей и его родительского каталога."
 
-#: acct_mgr/htfile.py:235
+#: acct_mgr/htfile.py:237
 msgid "Realm to select relevant htdigest file entries"
-msgstr ""
+msgstr "Область для выбора релевантных записей из htdigest файла."
 
 #: acct_mgr/http.py:25
 msgid "URL of the HTTP authentication service"
@@ -163,7 +168,7 @@ msgstr "Имя пользователя и адрес не соответств�
 msgid "Notification"
 msgstr "Уведомление"
 
-#: acct_mgr/pwhash.py:97
+#: acct_mgr/pwhash.py:98
 msgid ""
 "The \"crypt\" module is unavailable\n"
 "                                    on this platform."
@@ -178,38 +183,49 @@ msgstr ""
 "путь, заданный в svnserve.conf"
 
 #: acct_mgr/web_ui.py:64
+msgid "Full name cannot be empty."
+msgstr "Полное имя не может быть пустым."
+
+#: acct_mgr/web_ui.py:68
+msgid "Email cannot be empty."
+msgstr "Электронный адрес не может быть пустым."
+
+#: acct_mgr/web_ui.py:74
 #, python-format
 msgid "Username %s is not allowed."
 msgstr "Имя пользователя %s недопустимо."
 
-#: acct_mgr/web_ui.py:74 acct_mgr/web_ui.py:94
+#: acct_mgr/web_ui.py:84 acct_mgr/web_ui.py:104
 #, python-format
-msgid "Another account or group named %s already exists."
-msgstr "Уже есть пользователь или группа с именем %s."
+msgid "Another account or permission group named %s already exists."
+msgstr "Уже есть пользователь или группа безопасности с именем %s."
 
-#: acct_mgr/web_ui.py:111
+#: acct_mgr/web_ui.py:121
 msgid "The username must not contain any of these characters:"
 msgstr "Имя пользователя не должно содержать этих символов:"
 
-#: acct_mgr/web_ui.py:120 acct_mgr/web_ui.py:346 acct_mgr/web_ui.py:359
+#: acct_mgr/web_ui.py:130 acct_mgr/web_ui.py:368 acct_mgr/web_ui.py:385
 msgid "Password cannot be empty."
 msgstr "Пароль не может быть пустым."
 
-#: acct_mgr/web_ui.py:131
+#: acct_mgr/web_ui.py:137
+msgid "The password must contain only ASCII characters."
+msgstr "Пароль должен содержать только ASCII символы."
+
+#: acct_mgr/web_ui.py:148
 msgid "You must specify a valid email address."
 msgstr "Нужно указать существующий электронный адрес."
 
-#: acct_mgr/web_ui.py:135
+#: acct_mgr/web_ui.py:152
 msgid ""
 "The email address specified appears to be\n"
 "                              invalid. Please specify a valid email "
 "address.\n"
 "                              "
 msgstr ""
-"Указан недопустимый электронный адрес. Пожалуйста, укажите правильный "
-"адрес."
+"Указан недопустимый электронный адрес. Пожалуйста, укажите валидный адрес."
 
-#: acct_mgr/web_ui.py:140
+#: acct_mgr/web_ui.py:157
 msgid ""
 "The email address specified is already in\n"
 "                              use. Please specify a different one.\n"
@@ -218,82 +234,84 @@ msgstr ""
 "Указанный электронный адрес уже используется. Пожалуйста, укажите другой "
 "адрес."
 
-#: acct_mgr/web_ui.py:220 acct_mgr/templates/admin_users.html:80
+#: acct_mgr/web_ui.py:238 acct_mgr/templates/admin_users.html:84
 #: acct_mgr/templates/prefs_account.html:42
 msgid "Account"
 msgstr "Учетная запись"
 
-#: acct_mgr/web_ui.py:259 acct_mgr/templates/login.html:42
+#: acct_mgr/web_ui.py:281 acct_mgr/templates/login.html:42
 #: acct_mgr/templates/login.html:63 acct_mgr/templates/login.html:66
 msgid "Forgot your password?"
 msgstr "Забыли пароль?"
 
-#: acct_mgr/web_ui.py:275
+#: acct_mgr/web_ui.py:297
 msgid "Are you sure you want to delete your account?"
 msgstr "Вы уверены, что хотите удалить свою учетную запись?"
 
-#: acct_mgr/web_ui.py:285
+#: acct_mgr/web_ui.py:307
 msgid "Thank you for taking the time to update your password."
-msgstr "Спасибо что нашли время для изменения своего пароля."
+msgstr "Спасибо, что нашли время для изменения своего пароля."
 
-#: acct_mgr/web_ui.py:294
+#: acct_mgr/web_ui.py:316
 msgid ""
 "You are required to change password because of a recent password change "
 "request. "
-msgstr "Вам необходимо сменить пароль, из-за недавнего запроса на смену пароля."
+msgstr "Вам необходимо сменить пароль из-за недавнего запроса на смену пароля."
 
-#: acct_mgr/web_ui.py:297
+#: acct_mgr/web_ui.py:319
 msgid "Please change your password now."
 msgstr "Теперь, пожалуйста, смените пароль."
 
-#: acct_mgr/web_ui.py:308
+#: acct_mgr/web_ui.py:330
 msgid "Username is required"
 msgstr "Требуется имя пользователя"
 
-#: acct_mgr/web_ui.py:310
+#: acct_mgr/web_ui.py:332
 msgid "Email is required"
 msgstr "Требуется электронный адрес"
 
-#: acct_mgr/web_ui.py:316
+#: acct_mgr/web_ui.py:338
 msgid "The email and username must match a known account."
 msgstr ""
 "Имя пользователя и адрес должны соответствовать существующей учетной "
 "записи."
 
-#: acct_mgr/web_ui.py:340
+#: acct_mgr/web_ui.py:362
 msgid "Old Password cannot be empty."
 msgstr "Старый пароль не может быть пустым."
 
-#: acct_mgr/web_ui.py:342
+#: acct_mgr/web_ui.py:364
 msgid "Old Password is incorrect."
 msgstr "Неправильный старый пароль."
 
-#: acct_mgr/web_ui.py:352
+#: acct_mgr/web_ui.py:378
 msgid "Password successfully updated."
 msgstr "Пароль удачно изменен."
 
-#: acct_mgr/web_ui.py:361
+#: acct_mgr/web_ui.py:387
 msgid "Password is incorrect."
 msgstr "Неправильный пароль."
 
-#: acct_mgr/web_ui.py:420 acct_mgr/templates/login.html:55
+#: acct_mgr/web_ui.py:450 acct_mgr/templates/login.html:55
 #: acct_mgr/templates/login.html:58 acct_mgr/templates/register.html:11
 msgid "Register"
 msgstr "Регистрация"
 
-#: acct_mgr/web_ui.py:449
+#: acct_mgr/web_ui.py:480
 #, python-format
 msgid ""
 "Registration has been finished successfully.\n"
 "                     You may login as user %(user)s now."
-msgstr "Регистрация успешно завершена. Вы можете войти как пользователь %(user)s."
+msgstr ""
+"Регистрация успешно завершена. Теперь Вы можете войти как пользователь "
+"%(user)s."
 
 #. TRANSLATOR: Intentionally obfuscated login error
-#: acct_mgr/web_ui.py:558
+#: acct_mgr/web_ui.py:594
 msgid "Invalid username or password"
-msgstr "Неправильное имя или пароль"
+msgstr "Неправильное имя пользователя или пароль"
 
-#: acct_mgr/web_ui.py:563
+#: acct_mgr/web_ui.py:599
 #, python-format
 msgid ""
 "Account locked, please try again after\n"
@@ -303,11 +321,11 @@ msgstr ""
 "Учетная запись заблокирована, пожалуйста повторите попытку через "
 "%(release_time)s"
 
-#: acct_mgr/web_ui.py:568
+#: acct_mgr/web_ui.py:604 acct_mgr/templates/admin_users.html:97
 msgid "Account locked"
 msgstr "Учетная запись заблокирована"
 
-#: acct_mgr/web_ui.py:573
+#: acct_mgr/web_ui.py:609
 #, python-format
 msgid "Login after %(attempts)s failed attempt"
 msgid_plural "Login after %(attempts)s failed attempts"
@@ -316,54 +334,54 @@ msgstr[1] "Вход после %(attempts)s неудачных попыток"
 msgstr[2] "Вход после %(attempts)s неудачных попыток"
 
 #. TRANSLATOR: Your permissions have been limited until you ...
-#: acct_mgr/web_ui.py:787
+#: acct_mgr/web_ui.py:893
 msgid "verify your email address"
 msgstr "подтвердите свой электронный адрес"
 
 #. TRANSLATOR: ... verify your email address
-#: acct_mgr/web_ui.py:790
+#: acct_mgr/web_ui.py:896
 #, python-format
 msgid "Your permissions have been limited until you %(link)s."
 msgstr "Ваши разрешения ограничены до тех пор, пока вы не %(link)s."
 
 #. TRANSLATOR: An email has been sent to %(email)s
 #. with a token to ... (the link label for following message)
-#: acct_mgr/web_ui.py:816
+#: acct_mgr/web_ui.py:922
 msgid "verify your new email address"
 msgstr "проверки вашего нового электронного адреса"
 
 #. TRANSLATOR: ... verify your new email address
-#: acct_mgr/web_ui.py:819
+#: acct_mgr/web_ui.py:925
 #, python-format
 msgid ""
 "An email has been sent to %(email)s with a token to\n"
 "                %(link)s."
 msgstr "На адрес %(email)s выслано письмо со словом для %(link)s."
 
-#: acct_mgr/web_ui.py:832
+#: acct_mgr/web_ui.py:938
 msgid "Please log in to finish email verification procedure."
 msgstr "Для завершения проверки электронного адреса пожалуйста выполните вход."
 
-#: acct_mgr/web_ui.py:836
+#: acct_mgr/web_ui.py:942
 msgid "Your email is already verified."
-msgstr "Ваш адрес уже проверен"
+msgstr "Ваш адрес уже проверен."
 
-#: acct_mgr/web_ui.py:844
+#: acct_mgr/web_ui.py:950
 #, python-format
 msgid "A notification email has been resent to <%s>."
 msgstr "Уведомление повторно отправлено  <%s>."
 
-#: acct_mgr/web_ui.py:851
+#: acct_mgr/web_ui.py:957
 msgid "Thank you for verifying your email address."
-msgstr "Спасибо за подтверждение электронного адреса"
+msgstr "Спасибо за подтверждение электронного адреса."
 
-#: acct_mgr/web_ui.py:854
+#: acct_mgr/web_ui.py:960
 msgid "Invalid verification token"
-msgstr "Неправильное проверочное слово"
+msgstr "Неправильный проверочный код"
 
 #: acct_mgr/templates/account_details.html:11
 msgid "Account Details"
-msgstr "Учетные записи"
+msgstr "Детали учетной записи"
 
 #: acct_mgr/templates/account_details.html:17
 msgid "Review User Account Details"
@@ -447,7 +465,7 @@ msgstr[0] "Условие блокирования выполнено %(count)s 
 msgstr[1] "Условие блокирования выполнено %(count)s раза."
 msgstr[2] "Условие блокирования выполнено %(count)s раз."
 
-#: acct_mgr/templates/account_details.html:85
+#: acct_mgr/templates/account_details.html:91
 #, python-format
 msgid ""
 "Therefore after another failed login attempt authentication\n"
@@ -456,28 +474,28 @@ msgstr ""
 "По этому после следующей неудачной попытки вход в эту учетную запись\n"
 "будет возможен только через %(time)s."
 
-#: acct_mgr/templates/account_details.html:92
+#: acct_mgr/templates/account_details.html:98
 msgid "Lock condition has not been met yet."
 msgstr "Условие блокирования еще не выполнено."
 
-#: acct_mgr/templates/account_details.html:98
+#: acct_mgr/templates/account_details.html:104
 msgid "No constraints are set for this account."
 msgstr "Ограничения для этой учетной записи не заданы."
 
-#: acct_mgr/templates/account_details.html:107
+#: acct_mgr/templates/account_details.html:113
 msgid "Verification"
 msgstr "Проверка"
 
-#: acct_mgr/templates/account_details.html:111
+#: acct_mgr/templates/account_details.html:117
 #, python-format
 msgid "Current email address: <%(email)s>"
 msgstr "Текущий электронный адрес: <%(email)s>"
 
-#: acct_mgr/templates/account_details.html:114
+#: acct_mgr/templates/account_details.html:120
 msgid "This address has been verified successfully."
 msgstr "Этот адрес был удачно проверен."
 
-#: acct_mgr/templates/account_details.html:116
+#: acct_mgr/templates/account_details.html:122
 #, python-format
 msgid ""
 "Verification is pending\n"
@@ -486,57 +504,61 @@ msgstr ""
 "Проверка выполняется\n"
 "         ([1:проверочное слово: '%(token)s' ])."
 
-#: acct_mgr/templates/account_details.html:119
+#: acct_mgr/templates/account_details.html:125
 msgid "This address has not been verified yet."
 msgstr "Этот адрес еще не был проверен."
 
-#: acct_mgr/templates/account_details.html:124
+#: acct_mgr/templates/account_details.html:130
 msgid "No email address is registered for this account."
 msgstr "Для этой учетной записи не задан электронный адрес."
 
-#: acct_mgr/templates/account_details.html:132
+#: acct_mgr/templates/account_details.html:138
 msgid "Access History"
 msgstr "Предыстория доступа"
 
-#: acct_mgr/templates/account_details.html:135
+#: acct_mgr/templates/account_details.html:141
 #, python-format
 msgid "Last login: %(time)s"
 msgstr "Последний вход: %(time)s"
 
-#: acct_mgr/templates/account_details.html:137
+#: acct_mgr/templates/account_details.html:143
 msgid "The user has not logged in before."
 msgstr "Пользователь еще не входил."
 
-#: acct_mgr/templates/account_details.html:141
+#: acct_mgr/templates/account_details.html:147
 #, python-format
 msgid "Total failed attempts: %(count)s"
 msgstr "Всего неудачных попыток: %(count)s"
 
-#: acct_mgr/templates/account_details.html:142
+#: acct_mgr/templates/account_details.html:148
 msgid "Table: Last failed login attempts log view"
 msgstr "Таблица: просмотр журнала последних неудачных входов"
 
-#: acct_mgr/templates/account_details.html:147
+#: acct_mgr/templates/account_details.html:153
 msgid "IP address"
 msgstr "IP адрес"
 
-#: acct_mgr/templates/account_details.html:148
+#: acct_mgr/templates/account_details.html:154
 msgid "Log time"
 msgstr "Время записи"
 
-#: acct_mgr/templates/account_details.html:159
+#: acct_mgr/templates/account_details.html:165
 msgid "Delete login failure log"
 msgstr "Удалить журнал неудачных входов"
 
-#: acct_mgr/templates/account_details.html:159
+#: acct_mgr/templates/account_details.html:165
 msgid "Delete Log"
 msgstr "Удалить журнал"
 
-#: acct_mgr/templates/account_details.html:166
+#: acct_mgr/templates/account_details.html:172
 msgid "There is currently no failed login attempt logged."
 msgstr "В данный момент нет записей о неудачных входах."
 
-#: acct_mgr/templates/account_details.html:172
+#: acct_mgr/templates/account_details.html:179
+msgid "Back to accounts"
+msgstr "Назад к учетным записям"
+
+#: acct_mgr/templates/account_details.html:181
 msgid "Update"
 msgstr "Обновить"
 
@@ -545,19 +567,23 @@ msgstr "Обновить"
 msgid "Accounts: Configuration"
 msgstr "Учетные записи: настройки"
 
-#: acct_mgr/templates/admin_accountsconfig.html:41
+#: acct_mgr/templates/admin_accountsconfig.html:44
 msgid "Password Refresh"
 msgstr "Обновление пароля"
 
-#: acct_mgr/templates/admin_accountsconfig.html:44
+#: acct_mgr/templates/admin_accountsconfig.html:47
 msgid "Silently update password hashes on next successful login."
-msgstr "Молча обновить хэш пароля при следующем удачном входе."
+msgstr "Обновить хеши паролей в тихом режиме при следующем удачном входе."
 
-#: acct_mgr/templates/admin_accountsconfig.html:49
+#: acct_mgr/templates/admin_accountsconfig.html:50
+msgid "Restart passwords refresh procedure"
+msgstr "Перезапустить процедуру обновления паролей"
+
+#: acct_mgr/templates/admin_accountsconfig.html:56
 msgid "Persistent Sessions"
 msgstr "Хранимые сеансы"
 
-#: acct_mgr/templates/admin_accountsconfig.html:52
+#: acct_mgr/templates/admin_accountsconfig.html:59
 msgid ""
 "Allow the user to be remembered across sessions without needing to\n"
 "          re-authenticate."
@@ -565,7 +591,7 @@ msgstr ""
 "Разрешить запоминать пользователей между посещениями и осуществлять вход "
 "без повторной аутентификации?"
 
-#: acct_mgr/templates/admin_accountsconfig.html:56
+#: acct_mgr/templates/admin_accountsconfig.html:63
 msgid ""
 "This is, user checks a \"Remember Me\"\n"
 "          [1:checkbox] and, next time he visits the site,\n"
@@ -574,23 +600,23 @@ msgstr ""
 "Пользователь ставит [1:флажок] \"Запомнить меня\", и в следующий раз, "
 "когда он открывает сайт, его сеанс будет возобновлен автоматически."
 
-#: acct_mgr/templates/admin_accountsconfig.html:63
+#: acct_mgr/templates/admin_accountsconfig.html:70
 msgid "Password Reset"
 msgstr "Сброс пароля"
 
-#: acct_mgr/templates/admin_accountsconfig.html:66
+#: acct_mgr/templates/admin_accountsconfig.html:73
 msgid "Force users to change passwords after a password reset."
 msgstr "Заставить пользователей менять пароль после его сброса."
 
-#: acct_mgr/templates/admin_accountsconfig.html:72
+#: acct_mgr/templates/admin_accountsconfig.html:79
 msgid "Verify email"
 msgstr "Подтверждения адреса"
 
-#: acct_mgr/templates/admin_accountsconfig.html:75
+#: acct_mgr/templates/admin_accountsconfig.html:82
 msgid "Force users to verify their email addresses."
 msgstr "Заставить пользователей подтверждать свой электронный адрес."
 
-#: acct_mgr/templates/admin_accountsconfig.html:80
+#: acct_mgr/templates/admin_accountsconfig.html:87
 #: acct_mgr/templates/admin_accountsnotification.html:48
 msgid "Save"
 msgstr "Сохранить"
@@ -652,77 +678,77 @@ msgstr ""
 msgid "Manage User Accounts"
 msgstr "Управление пользователями"
 
-#: acct_mgr/templates/admin_users.html:24
+#: acct_mgr/templates/admin_users.html:23
 #, python-format
 msgid "Successfully updated: %(success)s"
 msgstr "Удачно обновлено: %(success)s"
 
-#: acct_mgr/templates/admin_users.html:29
+#: acct_mgr/templates/admin_users.html:28
 msgid "Add/Edit Account:"
 msgstr "Добавить/изменить пользователя:"
 
-#: acct_mgr/templates/admin_users.html:31 acct_mgr/templates/login.html:30
-#: acct_mgr/templates/register.html:33
+#: acct_mgr/templates/admin_users.html:30 acct_mgr/templates/login.html:30
+#: acct_mgr/templates/register.html:35
 #: acct_mgr/templates/reset_password.html:50
 msgid "Username:"
 msgstr "Имя пользователя:"
 
-#: acct_mgr/templates/admin_users.html:36 acct_mgr/templates/login.html:35
-#: acct_mgr/templates/prefs_account.html:27 acct_mgr/templates/register.html:39
+#: acct_mgr/templates/admin_users.html:35 acct_mgr/templates/login.html:35
+#: acct_mgr/templates/prefs_account.html:27 acct_mgr/templates/register.html:44
 msgid "Password:"
 msgstr "Пароль:"
 
-#: acct_mgr/templates/admin_users.html:41
-#: acct_mgr/templates/prefs_account.html:71 acct_mgr/templates/register.html:45
+#: acct_mgr/templates/admin_users.html:43
+#: acct_mgr/templates/prefs_account.html:71 acct_mgr/templates/register.html:53
 msgid "Confirm Password:"
 msgstr "Подтверждение пароля:"
 
-#: acct_mgr/templates/admin_users.html:46
-msgid "Pre-/Surname (Nickname):"
-msgstr "Фамилия (ник):"
+#: acct_mgr/templates/admin_users.html:51 acct_mgr/templates/register.html:88
+msgid "Full name:"
+msgstr "Полное имя:"
 
-#: acct_mgr/templates/admin_users.html:51
+#: acct_mgr/templates/admin_users.html:56
 #: acct_mgr/templates/reset_password.html:55
 msgid "Email Address:"
 msgstr "Электронный адрес:"
 
-#: acct_mgr/templates/admin_users.html:55
+#: acct_mgr/templates/admin_users.html:60
 msgid "Add a new user account or edit an existing one."
 msgstr "Добавить нового пользователя или редактировать существующего."
 
-#: acct_mgr/templates/admin_users.html:57
-msgid " Add "
-msgstr " Добавить "
+#: acct_mgr/templates/admin_users.html:62
+msgid "Add"
+msgstr "Добавить"
 
-#: acct_mgr/templates/admin_users.html:60
-msgid " Change "
-msgstr " Изменить "
+#: acct_mgr/templates/admin_users.html:65
+msgid "Change"
+msgstr "Изменить"
 
-#: acct_mgr/templates/admin_users.html:70
+#: acct_mgr/templates/admin_users.html:74
 msgid "This password store does not support listing users."
 msgstr "Это хранилище паролей не поддерживает перечисление пользователей."
 
-#: acct_mgr/templates/admin_users.html:80
+#: acct_mgr/templates/admin_users.html:84
 msgid "Name"
 msgstr "Имя"
 
-#: acct_mgr/templates/admin_users.html:80
+#: acct_mgr/templates/admin_users.html:84
 msgid "Email"
 msgstr "Электронный адрес"
 
-#: acct_mgr/templates/admin_users.html:80
+#: acct_mgr/templates/admin_users.html:84
 msgid "Last Login"
 msgstr "Последний вход"
 
-#: acct_mgr/templates/admin_users.html:96
+#: acct_mgr/templates/admin_users.html:100
 msgid "Permanently locked"
 msgstr "Заблокирован навсегда"
 
-#: acct_mgr/templates/admin_users.html:110
+#: acct_mgr/templates/admin_users.html:113
 msgid "Reset passwords"
 msgstr "Сбросить пароли"
 
-#: acct_mgr/templates/admin_users.html:113
+#: acct_mgr/templates/admin_users.html:116
 msgid "Remove selected accounts"
 msgstr "Удалить выбранных"
 
@@ -766,47 +792,37 @@ msgstr "Новый пароль:"
 msgid "Register an account"
 msgstr "Зарегистрировать учетную запись"
 
-#: acct_mgr/templates/register.html:30
-msgid "Required"
-msgstr "Обязательно"
+#: acct_mgr/templates/register.html:31
+msgid "Required fields"
+msgstr "Обязательные поля"
 
-#: acct_mgr/templates/register.html:51 acct_mgr/templates/register.html:73
+#: acct_mgr/templates/register.html:62
 msgid "Email:"
 msgstr "Электронный адрес:"
 
-#: acct_mgr/templates/register.html:55
+#: acct_mgr/templates/register.html:71
 msgid ""
 "The email address is required for Trac to send you a\n"
-"              verification token."
-msgstr "Trac необходим электронный адрес, для отправки кода подтверждения."
+"                verification token."
+msgstr "Trac необходим электронный адрес для отправки Вам кода подтверждения."
 
-#: acct_mgr/templates/register.html:58
+#: acct_mgr/templates/register.html:74
 msgid ""
 "Entering your email address will\n"
-"              also enable you to reset your password if you ever forget "
-"it."
+"                also let you reset your password if you ever forget it."
 msgstr ""
 "Ввод электронного адреса также позволит осуществить сброс пароля, если вы"
 " когда-нибудь его забудете."
 
-#: acct_mgr/templates/register.html:65
-msgid "Optional"
-msgstr "На выбор"
-
-#: acct_mgr/templates/register.html:67
-msgid "Name:"
-msgstr "Имя:"
-
-#: acct_mgr/templates/register.html:77
+#: acct_mgr/templates/register.html:79
 msgid ""
-"Entering your email address\n"
-"              will enable you to reset your password if you ever forget "
-"it."
+"Email address\n"
+"                let you reset your password if you ever forget it."
 msgstr ""
 "Ввод электронного адреса позволит осуществить сброс пароля, если вы "
 "когда-нибудь его забудете."
 
-#: acct_mgr/templates/register.html:82
+#: acct_mgr/templates/register.html:97
 msgid "Create account"
 msgstr "Создать учетную запись"
 
@@ -880,4 +896,7 @@ msgstr "Проверить"
 #: acct_mgr/templates/verify_email.html:39
 msgid "Resend Email"
 msgstr "Послать снова"
+
+#~ msgid " Add "
+#~ msgstr " Добавить "
 

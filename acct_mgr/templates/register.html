@@ -7,9 +7,6 @@
       xmlns:i18n="http://genshi.edgewall.org/i18n"
       i18n:domain="acct_mgr">
   <xi:include href="layout.html" />
-  <?python
-    if _dgettext is not None:
-        dgettext = _dgettext ?>
   <head>
     <title>Register</title>
     <script type="text/javascript">
@@ -29,61 +26,76 @@
       </div>
 
       <form method="post" id="acctmgr_registerform" action="">
+        <input type="hidden" name="action" value="create" />
         <fieldset>
-          <legend>Required</legend>
-          <div>
-            <input type="hidden" name="action" value="create" />
-            <label>Username:
+          <legend>Required fields</legend>
+          <table border="0">
+          <tr>
+            <td>
+              <label for="username">Username:</label>
+            </td>
+            <td>
               <input type="text" name="username" class="textwidget"
-                     size="20" value="${acctmgr.username}" />
-            </label>
-          </div>
-          <div>
-            <label>Password:
+                     size="20" value="${account.username}" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="password">Password:</label>
+            </td>
+            <td>
               <input type="password" name="password"
                      class="textwidget" size="20" />
-            </label>
-          </div>
-          <div>
-            <label>Confirm Password:
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="password_confirm">Confirm Password:</label>
+            </td>
+            <td>
               <input type="password" name="password_confirm"
                      class="textwidget" size="20" />
-            </label>
-          </div>
-          <div py:if="verify_account_enabled">
-            <label>Email:
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="email">Email:</label>
+            </td>
+            <td>
               <input type="text" name="email" class="textwidget" size="20"
-                value="${acctmgr.email}" />
-            </label>
-            <p>The email address is required for Trac to send you a
-              verification token.
-            </p>
-            <p py:if="reset_password_enabled">Entering your email address will
-              also enable you to reset your password if you ever forget it.
-            </p>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Optional</legend>
-          <div>
-            <label>Name:
+                value="${account.email}" />
+            </td>
+          </tr>
+          <tr py:choose="">
+            <td py:when="verify_account_enabled" colspan="2">
+              <p>The email address is required for Trac to send you a
+                verification token.
+              </p>
+              <p py:if="reset_password_enabled">Entering your email address will
+                also let you reset your password if you ever forget it.
+              </p>
+            </td>
+            <td py:otherwise="" colspan="2">
+              <p py:if="reset_password_enabled">Email address
+                let you reset your password if you ever forget it.
+              </p>
+            </td>
+          </tr>
+          <tr py:if="not verify_account_enabled">
+          </tr>
+          <tr>
+            <td>
+              <label for="name">Full name:</label>
+            </td>
+            <td>
               <input type="text" name="name" class="textwidget" size="20"
-                value="${acctmgr.name}"/>
-            </label>
-          </div>
-          <div py:if="not verify_account_enabled">
-            <label>Email:
-              <input type="text" name="email" class="textwidget" size="20"
-                value="${acctmgr.email}"/>
-            </label>
-            <p py:if="reset_password_enabled">Entering your email address
-              will enable you to reset your password if you ever forget it.
-            </p>
-          </div>
+                value="${account.name}"/>
+            </td>
+          </tr>
+          </table>
         </fieldset>
         <input type="submit"
-               value="${dgettext('acct_mgr', 'Create account')}" />
+               value="${_('Create account')}" />
       </form>
     </div>
   </body>

@@ -28,21 +28,19 @@ except ImportError:
 
 
 setup(
-    name = 'TracAccountManager',
-    version = '0.3.2',
-    author = 'Matthew Good',
-    author_email = 'trac@matt-good.net',
-    maintainer = 'Steffen Hoffmann',
-    maintainer_email = 'hoff.st@web.de',
-    url = 'http://trac-hacks.org/wiki/AccountManagerPlugin',
-    description = 'User account management plugin for Trac',
+    name = 'EduTracAccountManager',
+    version = '0.3.2e',
+    author = 'Matthew Good, Aleksey A. Porfirov',
+    author_email = 'lexqt@yandex.ru',
+    url = '',
+    description = 'User account management plugin for EduTrac',
 
     license = 'THE BEER-WARE LICENSE',
 
     packages=['acct_mgr'],
     package_data={
         'acct_mgr': [
-            'htdocs/*', 'locale/*/LC_MESSAGES/*.mo', 'locale/.placeholder',
+            'htdocs/*', 'locale/*/LC_MESSAGES/*.mo',
             'templates/*.html', 'templates/*.txt'
         ]
     },
@@ -65,3 +63,18 @@ setup(
     },
     **extra
 )
+
+#### AUTHORS ####
+## Author of original TracAccountManager:
+## Matthew Good
+## trac@matt-good.net
+## http://trac-hacks.org/wiki/AccountManagerPlugin
+##
+## Maintainer of original TracAccountManager:
+## Steffen Hoffmann
+## hoff.st@web.de
+##
+## Author of EduTrac adaptation, fixes and enhancements:
+## Aleksey A. Porfirov
+## lexqt@yandex.ru
+## github: lexqt

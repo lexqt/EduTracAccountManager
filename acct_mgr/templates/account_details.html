@@ -7,9 +7,6 @@
       xmlns:i18n="http://genshi.edgewall.org/i18n"
       i18n:domain="acct_mgr">
   <xi:include href="admin.html" />
-  <?python
-    if _dgettext:
-        dgettext = _dgettext ?>
   <head>
     <title>Account Details</title>
   </head>
@@ -70,7 +67,7 @@
               <input type="submit" name="release"
                      alt="Release account lock"
                      title="Release account lock"
-                     value="${dgettext('acct_mgr', 'Unlock')}" />
+                     value="${_('Unlock')}" />
             </span>
           </p>
         </div>
@@ -168,7 +165,7 @@
               <input type="submit" name="delete"
                      alt="Delete login failure log"
                      title="Delete login failure log"
-                     value="${dgettext('acct_mgr', 'Delete Log')}" />
+                     value="${_('Delete Log')}" />
             </div>
           </div>
           <div id="no_failed_attempts" py:otherwise="">
@@ -180,9 +177,9 @@
       <div class="buttons">
         <input type="hidden" name="user" value="${user}" />
         <input type="submit" name="list"
-               value="${dgettext('acct_mgr', 'Back to accounts')}" />
+               value="${_('Back to accounts')}" />
         <input type="submit" name="update"
-               value="${dgettext('acct_mgr', 'Update')}" />
+               value="${_('Update')}" />
       </div>
       </form>
     </div>

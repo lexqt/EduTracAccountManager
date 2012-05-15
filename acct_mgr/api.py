@@ -16,34 +16,11 @@ from trac.config    import  BoolOption, Configuration, ExtensionOption, \
                     Option, OrderedExtensionsOption
 from trac.core      import *
 
-# Import i18n methods.  Fallback modules maintain compatibility to Trac 0.11
-# by keeping Babel optional here.
-try:
-    from  trac.util.translation  import  domain_functions
-    add_domain, _, N_, gettext, ngettext, tag_ = \
-        domain_functions('acct_mgr', ('add_domain', '_', 'N_', 'gettext',
-                                      'ngettext', 'tag_'))
-    dgettext = None
-except ImportError:
-    from  genshi.builder         import  tag as tag_
-    from  trac.util.translation  import  gettext
-    _ = gettext
-    N_ = lambda text: text
-    def add_domain(a,b,c=None):
-        pass
-    def dgettext(domain, string, **kwargs):
-        return safefmt(string, kwargs)
-    def ngettext(singular, plural, num, **kwargs):
-        string = num == 1 and singular or plural
-        kwargs.setdefault('num', num)
-        return safefmt(string, kwargs)
-    def safefmt(string, kwargs):
-        if kwargs:
-            try:
-                return string % kwargs
-            except KeyError:
-                pass
-        return string
+from  trac.util.translation  import  domain_functions
+add_domain, _, N_, gettext, ngettext, tag_ = \
+    domain_functions('acct_mgr', ('add_domain', '_', 'N_', 'gettext',
+                                  'ngettext', 'tag_'))
+dgettext = None
 
 from acct_mgr.hashlib_compat  import md5
 
@@ -170,6 +147,9 @@ class AccountManager(Component):
         'account-manager', 'username_char_blacklist', ':[]',
         doc="""Always exclude some special characters from usernames.
             This is enforced upon new user registration.""")
+    ascii_passwords = BoolOption(
+        'account-manager', 'ascii_passwords', True,
+        doc="Allow only ASCII characters in user passwords.")
 
     def __init__(self):
         # bind the 'acct_mgr' catalog to the specified locale directory
@@ -432,9 +412,9 @@ class AccountManager(Component):
             self.log.debug('refresh password for user: %s' % user)
             store = self.find_user_store(user)
             pwstore = self.get_supporting_store('set_password')
-            if pwstore.set_password(user, password) == True:
+            if pwstore.set_password(user, password):
                 # Account re-created according to current settings
-                if store and not (store.delete_user(user) == True):
+                if store and store != pwstore and not store.delete_user(user):
                     self.log.warn(
                         "failed to remove old entry for user '%s'" % user)
             cursor.execute("""
